@@ -10,6 +10,7 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Imports: 
+    openxlsx,
     pkgload,
     shiny
 RoxygenNote: 7.3.1
