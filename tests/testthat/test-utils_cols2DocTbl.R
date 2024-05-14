@@ -2,6 +2,11 @@ test_that("`cols2DocTbl` works", {
   expect_no_error({cols2DocTbl(cols = c(a = 'A'))})
 })
 
+test_that("`cols2DocTbl` catches missing 'names' attribute", {
+  msg <- "`names(cols)` cannot be NULL"
+  expect_error({cols2DocTbl(cols = c('t'))}, msg, fixed = TRUE)
+})
+
 test_that("`cols2DocTbl` handles whitespace without error", {
   expect_no_error({cols2DocTbl(cols = c(`a ` = ' A '))})
 })
@@ -46,6 +51,6 @@ test_that("`cols2DocTbl` output matches input", {
   expect_true({is.data.frame(out)})
   expect_true({length(colnames(out)) == length(input_cols)})
   expect_setequal(colnames(out), names(input_cols))
-  expect_setequal(attr(out, 'colstrings'), input_cols)
+  expect_mapequal(attr(out, 'colstrings'), input_cols)
 
 })

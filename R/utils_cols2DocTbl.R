@@ -12,6 +12,9 @@ cols2DocTbl <- function(cols) {
 
   if (missing(cols)) {stop("`cols` is missing", call. = TRUE)}
 
+  # check for names attribute
+  if (is.null(attr(cols, 'names', exact = TRUE))) {stop("`names(cols)` cannot be NULL", call. = TRUE)}
+
   # get names attribute
   cols_n <- names(cols)
 
