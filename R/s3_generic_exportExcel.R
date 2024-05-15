@@ -18,6 +18,11 @@ exportExcel.docTbl <- function(obj, file, ...) {
   if (missing(obj)) {stop("`obj` is missing", call. = TRUE)}
   if (missing(file)) {stop("`file` is missing", call. = TRUE)}
 
-  openxlsx::write.xlsx(x = obj, file = file, ..., colWidths = 'auto')
+  # change column names using 'colstrings' attribute
+  file_data <- as.data.frame(obj)
+  colnames(file_data) <- attr(obj, 'colstrings')[colnames(file_data)]
+
+  # export to excel
+  openxlsx::write.xlsx(x = file_data, file = file, ..., colWidths = 'auto')
 
 }
