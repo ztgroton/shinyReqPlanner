@@ -32,13 +32,10 @@ test_that("`cols2DocTbl` catches NA errors", {
 
 test_that("`cols2DocTbl` catches non-alphanumeric errors" ,{
 
-  msg <- c(
-    "`names(cols)` cannot contain non-alphanumeric characters",
-    "`cols` cannot contain non-alphanumeric characters"
-  )
+  msg <- "`names(cols)` cannot contain non-alphanumeric characters"
 
-  expect_error({cols2DocTbl(cols = c(`a^` = 'A'))}, msg[1], fixed = TRUE)
-  expect_error({cols2DocTbl(cols = c(`a` = 'A^'))}, msg[2], fixed = TRUE)
+  expect_error({cols2DocTbl(cols = c(`a^` = 'A'))}, msg, fixed = TRUE)
+  expect_no_error({cols2DocTbl(cols = c(`a` = 'A^'))})
 
 })
 

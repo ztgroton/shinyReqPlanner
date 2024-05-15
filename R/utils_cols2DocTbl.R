@@ -31,9 +31,7 @@ cols2DocTbl <- function(cols) {
 
   # check for non-alphanumeric characters
   non_alnum_cols_n <- grep("[^a-zA-Z0-9]", cols_n)
-  non_alnum_cols <- grep("[^a-zA-Z0-9[:space:]]", cols)
   if (length(non_alnum_cols_n) > 0) {stop("`names(cols)` cannot contain non-alphanumeric characters", call. = TRUE)}
-  if (length(non_alnum_cols) > 0) {stop("`cols` cannot contain non-alphanumeric characters", call. = TRUE)}
 
   # build data.frame
   doc_df <- as.list(rep(NA_character_, length(cols)))
