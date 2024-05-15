@@ -9,7 +9,7 @@ A data frame with 21 rows and 3 columns:
 \describe{
   \item{template}{(character) name of document}
   \item{name}{(character) name of field within document}
-  \item{colstring}{(character) user-friendly colstring}
+  \item{colstrings}{(character) user-friendly colstring}
   ...
 }
 }
