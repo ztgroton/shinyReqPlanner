@@ -14,10 +14,15 @@ test_that("`docTbl` works", {
   expect_no_error({docTbl(cols = c(a = 'A'))})
 })
 
-test_that("`validate_docTbl` catches class path errors", {
+test_that("`validate_docTbl` catches attribute and class path errors", {
 
-  msg <- "`obj` must inherit from 'docTbl'"
-  expect_error({validate_docTbl(obj = 0)}, msg, fixed = TRUE)
+  msg <- c(
+    "`attr(obj, 'colstrings')` was not found",
+    "`obj` must inherit from 'docTbl'"
+  )
+  paste_msg <- paste0('\n', paste(msg, collapse = '\n'))
+
+  expect_error({validate_docTbl(obj = 0)}, paste_msg, fixed = TRUE)
   expect_equal({validate_docTbl(obj = 0, throw_err = FALSE)}, msg)
 
 })

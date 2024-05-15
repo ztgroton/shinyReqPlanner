@@ -48,6 +48,18 @@ validate_docTbl <- function(obj, bool_out = FALSE, throw_err = TRUE) {
     msg_q <- c(err_msg, msg_q)
   }
 
+  # check 'colstrings' attribute
+  colstrings <- attr(obj, 'colstrings')
+  if (isTRUE(is.null(colstrings))) {
+    err_msg <- "`attr(obj, 'colstrings')` was not found"
+    msg_q <- c(err_msg, msg_q)
+  }
+
+  if (!isTRUE(setequal(names(colstrings), colnames(obj)))) {
+    err_msg <- "`names(attr(obj, 'colstrings'))` must equal `colnames(obj)`"
+    msg_q <- c(err_msg, msg_q)
+  }
+
   # return result
   if (isTRUE(length(msg_q) == 0)) {
     if (isTRUE(bool_out)) {return(TRUE)} else {invisible(obj)}
