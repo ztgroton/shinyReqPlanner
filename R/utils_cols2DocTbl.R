@@ -30,8 +30,8 @@ cols2DocTbl <- function(cols) {
   if (any(cols == '')) {stop("`cols` cannot contain blank values", call. = TRUE)}
 
   # check for non-alphanumeric characters
-  non_alnum_cols_n <- grep("[^a-zA-Z0-9[:space:]]", cols_n)
-  non_alnum_cols <- grep("[^a-zA-Z0-9]", cols)
+  non_alnum_cols_n <- grep("[^a-zA-Z0-9]", cols_n)
+  non_alnum_cols <- grep("[^a-zA-Z0-9[:space:]]", cols)
   if (length(non_alnum_cols_n) > 0) {stop("`names(cols)` cannot contain non-alphanumeric characters", call. = TRUE)}
   if (length(non_alnum_cols) > 0) {stop("`cols` cannot contain non-alphanumeric characters", call. = TRUE)}
 
