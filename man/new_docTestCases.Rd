@@ -4,7 +4,10 @@
 \alias{new_docTestCases}
 \title{Constructor for S3 Class 'docTestCases'}
 \usage{
-new_docTestCases()
+new_docTestCases(data = NULL)
+}
+\arguments{
+\item{data}{data.frame}
 }
 \value{
 S3 object of class 'docTestCases'

@@ -4,7 +4,10 @@
 \alias{new_docNonFuncReq}
 \title{Constructor for S3 Class 'docNonFuncReq'}
 \usage{
-new_docNonFuncReq()
+new_docNonFuncReq(data = NULL)
+}
+\arguments{
+\item{data}{data.frame}
 }
 \value{
 S3 object of class 'docNonFuncReq'

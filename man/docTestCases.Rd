@@ -4,9 +4,11 @@
 \alias{docTestCases}
 \title{Constructor with Validation for S3 Class 'docTestCases'}
 \usage{
-docTestCases(bool_out = FALSE, throw_err = TRUE)
+docTestCases(data = NULL, bool_out = FALSE, throw_err = TRUE)
 }
 \arguments{
+\item{data}{data.frame}
+
 \item{bool_out}{TRUE/FALSE - should output be TRUE when input object
 is valid, or should the input object be silently returned.}
 

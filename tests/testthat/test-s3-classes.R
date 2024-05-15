@@ -1,24 +1,29 @@
 
 # docTbl ----
 test_that("`new_docTbl` works", {
-  expect_no_error(new_docTbl(cols = c(a = 'A')))
+  test_data <- emptyDocTemplate(cols = c(a = 'A'))
+  expect_no_error(new_docTbl(data = test_data))
 })
 
 test_that("`validate_docTbl` works", {
 
-  test_obj <- new_docTbl(cols = c(a = 'A'))
+  test_data <- emptyDocTemplate(cols = c(a = 'A'))
+  test_obj <- new_docTbl(data = test_data)
+
   expect_no_error({validate_docTbl(obj = test_obj)})
   expect_true({validate_docTbl(obj = test_obj, bool_out = TRUE)})
 
 })
 
 test_that("`docTbl` works", {
-  expect_no_error({docTbl(cols = c(a = 'A'))})
+  test_data <- emptyDocTemplate(cols = c(a = 'A'))
+  expect_no_error({docTbl(data = test_data)})
 })
 
 test_that("`validate_docTbl` catches attribute and class path errors", {
 
   msg <- c(
+    "`obj` must be valid data.frame",
     "`obj` must inherit from 'docTbl'",
     "`attr(obj, 'colstrings')` was not found"
   )

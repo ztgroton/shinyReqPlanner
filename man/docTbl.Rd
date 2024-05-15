@@ -4,10 +4,10 @@
 \alias{docTbl}
 \title{Constructor with Validation for S3 Class 'docTbl'}
 \usage{
-docTbl(cols, bool_out = FALSE, throw_err = TRUE)
+docTbl(data, bool_out = FALSE, throw_err = TRUE)
 }
 \arguments{
-\item{cols}{named character vector}
+\item{data}{data.frame}
 
 \item{bool_out}{TRUE/FALSE - should output be TRUE when input object
 is valid, or should the input object be silently returned.}

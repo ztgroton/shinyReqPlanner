@@ -4,10 +4,10 @@
 \alias{new_docTbl}
 \title{Constructor for S3 Class 'docTbl'}
 \usage{
-new_docTbl(cols)
+new_docTbl(data)
 }
 \arguments{
-\item{cols}{named character vector}
+\item{data}{data.frame}
 }
 \value{
 S3 object of class 'docTbl'
