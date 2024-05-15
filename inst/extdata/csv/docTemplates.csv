@@ -1,20 +1,20 @@
 ﻿template,name,colstrings
-user_story,num,#
+user_story,num,ID
 user_story,name,User Story
 user_story,desc,Description
 user_story,priority,Priority
 user_story,notes,Notes
-func_req,num,#
+func_req,num,ID
 func_req,name,Functional Req.
 func_req,desc,Description
 func_req,priority,Priority
 func_req,notes,Notes
-non_func_req,num,#
+non_func_req,num,ID
 non_func_req,name,Functional Req.
 non_func_req,desc,Description
 non_func_req,priority,Priority
 non_func_req,notes,Notes
-test_cases,num,#
+test_cases,num,ID
 test_cases,type,Type
 test_cases,name,Test Name
 test_cases,desc,Description
