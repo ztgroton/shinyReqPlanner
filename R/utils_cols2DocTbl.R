@@ -20,7 +20,7 @@ cols2DocTbl <- function(cols) {
 
   # remove whitespace
   cols_n <- gsub(' ', '', cols_n, fixed = TRUE)
-  cols <- gsub(' ', '', cols, fixed = TRUE)
+  cols <- trimws(gsub('\\s+', ' ', cols))
 
   # check for blank values
   if (any(is.na(cols_n))) {stop("`names(cols)` cannot contain NA values", call. = TRUE)}
@@ -31,7 +31,7 @@ cols2DocTbl <- function(cols) {
 
   # check for non-alphanumeric characters
   non_alnum_cols_n <- grep("[^a-zA-Z0-9[:space:]]", cols_n)
-  non_alnum_cols <- grep("[^a-zA-Z0-9[:space:]]", cols)
+  non_alnum_cols <- grep("[^a-zA-Z0-9]", cols)
   if (length(non_alnum_cols_n) > 0) {stop("`names(cols)` cannot contain non-alphanumeric characters", call. = TRUE)}
   if (length(non_alnum_cols) > 0) {stop("`cols` cannot contain non-alphanumeric characters", call. = TRUE)}
 
