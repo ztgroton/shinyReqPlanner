@@ -1,6 +1,6 @@
 
 #' Application Server
-#' @import shiny
+#' @import shiny bslib
 #' @param input,output,session Internal Paremeters for {shiny}
 #'     DO NOT REMOVE
 #' @noRd
