@@ -93,16 +93,20 @@ dataDocTemplate <- function(data, template) {
 
   }
 
-  # format data according to template
-  t_name <- getDocTemplate(template, 'name')
-  t_colstrings <- getDocTemplate(template, 'colstrings')
-  t_name_map <- t_name
+  if (isTRUE(length(msg) == 0)) {
 
-  names(t_name_map) <- t_colstrings
-  names(t_colstrings) <- t_name
+    # format data according to template
+    t_name <- getDocTemplate(template, 'name')
+    t_colstrings <- getDocTemplate(template, 'colstrings')
+    t_name_map <- t_name
 
-  colnames(data) <- t_name_map[colnames(data)]
-  attr(data, 'colstrings') <- t_colstrings
+    names(t_name_map) <- t_colstrings
+    names(t_colstrings) <- t_name
+
+    colnames(data) <- t_name_map[colnames(data)]
+    attr(data, 'colstrings') <- t_colstrings
+
+  }
 
   # return result
   obj_msg_result(data, msg, bool_out = FALSE, throw_err = FALSE)

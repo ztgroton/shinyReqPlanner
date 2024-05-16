@@ -1,4 +1,6 @@
 
+# exportExcel ----
+
 #' S3 Generic - Export S3 Object to Excel
 #'
 #' @param obj S3 Object

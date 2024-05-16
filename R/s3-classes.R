@@ -14,7 +14,7 @@
 new_docTbl <- function(data) {
 
   if (missing(data)) {stop("`data` is missing", call. = TRUE)}
-  rs <- data
+  rs <- as.data.frame(data)
 
   # update class path
   class(rs) <- c('docTbl', class(rs))
