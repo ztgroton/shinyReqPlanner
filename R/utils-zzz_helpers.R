@@ -29,3 +29,43 @@ obj_msg_result <- function(obj, msg, bool_out = FALSE, throw_err = TRUE) {
   }
 
 }
+
+#' User-Friendly Error Message for Set Differences
+#'
+#' Displays elements missing from 'x' and unexpected elements in 'y'
+#'
+#' @param x character vector
+#' @param y character vector
+#'
+#' @return character
+#' @export
+msg_setdiff <- function(x, y) {
+
+  if (missing(x)) {stop("`x` is missing", call. = TRUE)}
+  if (missing(y)) {stop("`y` is missing", call. = TRUE)}
+
+  x_y <- setdiff(x,y)
+  y_x <- setdiff(y,x)
+
+  if (isTRUE(length(x_y) > 0)) {
+    msg_xy <- paste0("  Missing: (", paste(x_y, collapse = ', '), ")")
+  } else {
+    msg_xy <- NULL
+  }
+
+  if (isTRUE(length(y_x) > 0)) {
+    msg_yx <- paste0("  Unexpected: (", paste(y_x, collapse = ', '), ")")
+  } else {
+    msg_yx <- NULL
+  }
+
+  if (isTRUE(length(x_y)>0) || isTRUE(length(y_x)>0)) {
+    msg_head <- "\n Difference in Vectors: "
+  } else {
+    msg_head <- NULL
+  }
+
+  msg <- paste(c(msg_head, msg_xy, msg_yx), collapse = '\n')
+  return(msg)
+
+}
