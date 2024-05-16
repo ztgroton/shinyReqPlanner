@@ -55,6 +55,7 @@ validate_docTbl <- function(obj, bool_out = FALSE, throw_err = TRUE) {
 
   if (!isTRUE(setequal(names(colstrings), colnames(obj)))) {
     msg[length(msg)+1] <- "`names(attr(obj, 'colstrings'))` must equal `colnames(obj)`"
+    msg[length(msg)+1] <- msg_setdiff(names(colstrings), colnames(obj))
   }
 
   # return result
@@ -134,10 +135,12 @@ validate_docUserStory <- function(obj, bool_out = FALSE, throw_err = TRUE) {
   colstrings <- attr(obj, 'colstrings')
   if (!isTRUE(setequal(names(colstrings), getDocTemplate('user_story', 'name')))) {
     msg[length(msg)+1] <- "`names(attr(obj, 'colstrings'))` must match `docTemplates`"
+    msg[length(msg)+1] <- msg_setdiff(names(colstrings), getDocTemplate('user_story', 'name'))
   }
 
   if (!isTRUE(setequal(colstrings, getDocTemplate('user_story', 'colstrings')))) {
     msg[length(msg)+1] <- "`attr(obj, 'colstrings')` must match `docTemplates`"
+    msg[length(msg)+1] <- msg_setdiff(colstrings, getDocTemplate('user_story', 'colstrings'))
   }
 
   # return result
@@ -224,10 +227,12 @@ validate_docFuncReq <- function(obj, bool_out = FALSE, throw_err = TRUE) {
 
   if (!isTRUE(setequal(names(colstrings), getDocTemplate('func_req', 'name')))) {
     msg[length(msg)+1] <- "`names(attr(obj, 'colstrings'))` must match `docTemplates`"
+    msg[length(msg)+1] <- msg_setdiff(names(colstrings), getDocTemplate('func_req', 'name'))
   }
 
   if (!isTRUE(setequal(colstrings, getDocTemplate('func_req', 'colstrings')))) {
     msg[length(msg)+1] <- "`attr(obj, 'colstrings')` must match `docTemplates`"
+    msg[length(msg)+1] <- msg_setdiff(colstrings, getDocTemplate('func_req', 'colstrings'))
   }
 
   # return result
@@ -314,10 +319,12 @@ validate_docNonFuncReq <- function(obj, bool_out = FALSE, throw_err = TRUE) {
 
   if (!isTRUE(setequal(names(colstrings), getDocTemplate('non_func_req', 'name')))) {
     msg[length(msg)+1] <- "`names(attr(obj, 'colstrings'))` must match `docTemplates`"
+    msg[length(msg)+1] <- msg_setdiff(names(colstrings), getDocTemplate('non_func_req', 'name'))
   }
 
   if (!isTRUE(setequal(colstrings, getDocTemplate('non_func_req', 'colstrings')))) {
     msg[length(msg)+1] <- "`attr(obj, 'colstrings')` must match `docTemplates`"
+    msg[length(msg)+1] <- msg_setdiff(colstrings, getDocTemplate('non_func_req', 'colstrings'))
   }
 
   # return result
@@ -405,10 +412,12 @@ validate_docTestCases <- function(obj, bool_out = FALSE, throw_err = TRUE) {
 
   if (!isTRUE(setequal(names(colstrings), getDocTemplate('test_cases', 'name')))) {
     msg[length(msg)+1] <- "`names(attr(obj, 'colstrings'))` must match `docTemplates`"
+    msg[length(msg)+1] <- msg_setdiff(names(colstrings), getDocTemplate('test_cases', 'name'))
   }
 
   if (!isTRUE(setequal(colstrings, getDocTemplate('test_cases', 'colstrings')))) {
     msg[length(msg)+1] <- "`attr(obj, 'colstrings')` must match `docTemplates`"
+    msg[length(msg)+1] <- msg_setdiff(colstrings, getDocTemplate('test_cases', 'colstrings'))
   }
 
   # return result
