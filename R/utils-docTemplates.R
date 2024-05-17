@@ -12,7 +12,10 @@ getDocTemplate <- function(template, cols) {
   if (missing(template)) {stop("`template` is missing", call. = TRUE)}
   if (missing(cols)) {stop("`cols` is missing", call. = TRUE)}
 
-  return(shinyReqPlanner::docTemplates[shinyReqPlanner::docTemplates$template == template, c(cols)])
+  file_path <- system.file('extdata/csv', 'docTemplates.csv', package = 'shinyReqPlanner')
+  data <- utils::read.csv(file_path, encoding = 'UTF-8', stringsAsFactors = FALSE)
+
+  return(data[data$template == template, c(cols)])
 
 }
 
