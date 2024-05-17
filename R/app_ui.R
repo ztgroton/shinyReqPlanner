@@ -9,50 +9,25 @@ app_ui <- function() {
     theme = bs_theme(version = 5, preset = 'cosmo'),
     underline = FALSE,
 
-    sidebar = sidebar(
-      HTML("TEST")
+    nav_panel(
+      title = "User Stories",
+
+      layout_columns(
+        col_widths = c(12, 12),
+        mod_action_tbl_ui('view_func_req', title = "Functional Requirements"),
+        mod_action_tbl_ui('view_non_func_req', title = "Non-Functional Requirements")
+      ),
+      value = 'stories'
     ),
 
     nav_panel(
-      title = "User Stories",
-      layout_columns(
-        col_widths = c(4, 8, 6, 6),
-        row_heights = c(1, 2),
-        card(
-          card_title("User Story")
-        ),
-        card(
-          card_title("Story Steps")
-        ),
-        card(
-          card_title("Functional Requirements")
-        ),
-        card(
-          card_title("Non-Functional Requirements")
-        )
-      ),
-      value = 'user_stories'
-    ),
-
-    nav_menu(
       title = "Requirements",
-
-      nav_panel(
-        title = "Functional",
-        card(
-          card_title("Functional Requirements")
-        ),
-        value = 'fun_req'
+      layout_columns(
+        col_widths = c(12, 12),
+        mod_action_tbl_ui('tbl_non_func_req', title = "Non-Functional Requirements"),
+        mod_action_tbl_ui('tbl_func_req', title = "Functional Requirements")
       ),
-
-      nav_panel(
-        title = "Non-Functional",
-        card(
-          card_title("Non-Functional Requirements")
-        ),
-        value = 'non_func_req'
-      )
-
+      value = 'requirements'
     ),
 
     nav_panel(
@@ -66,7 +41,7 @@ app_ui <- function() {
     nav_spacer(),
 
     nav_item(
-      input_dark_mode(id = "dark_mode", mode = "dark")
+      input_dark_mode(id = "dark_mode", mode = "light")
     )
 
   )
