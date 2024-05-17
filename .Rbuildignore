@@ -6,3 +6,5 @@
 ^app.R
 ^LICENSE\.md$
 ^data-raw$
+
+^.*.xlsx
